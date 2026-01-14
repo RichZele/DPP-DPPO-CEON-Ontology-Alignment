@@ -1,0 +1,46 @@
+@prefix ceon-material: <http://w3id.org/CEON/ontology/material/> .
+@prefix ceon-product: <http://w3id.org/CEON/ontology/product/> .
+@prefix dpp-comp: <http://w3id.org/dppo/ontology/dpp-comp/> .
+@prefix dpp-core: <http://w3id.org/dppo/ontology/dpp-core/> .
+@prefix dpp-odp: <http://w3id.org/dppo/ontology/dpp-odp/> .
+@prefix dppo-ceon: <http://w3id.org/dppo/alignment/dppo-ceon#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# Ontology Declaration 
+<http://www.w3id.org/dpp/alignment/dppo-ceon> a owl:Ontology ;
+    owl:imports <http://www.w3id.org/dppo> ;
+    owl:imports <http://www.w3id.org/ceon> ;
+    dcterms:title "DPPO-CEON Alignment Ontology" ;
+    dcterms:creator "Rahel Kebede", "Eva Blomqvist", "Huanyu Li" ;
+    dcterms:contributor "Peter Johansson" ;
+    dcterms:description "An alignment ontology mapping the DPPO and CEON ontologies."@en .
+    
+
+### Asserted Mappings 
+# Core Class Mappings
+dpp-odp:Product a owl:Class ;
+    owl:equivalentClass ceon-product:Product ;
+    rdfs:comment "Product Alignment" .
+
+dpp-core:Material a owl:Class ;
+    owl:equivalentClass ceon-material:Material ;
+    rdfs:comment "Material Alignment" .
+    
+# Hierarchy Specializations
+dpp-core:Substance a owl:Class ;
+    rdfs:subClassOf ceon-material:ChemicalSubstance ;
+    rdfs:comment "Substance Alignment" .
+    
+dpp-comp:SubstanceOfConcern a owl:Class ;
+    rdfs:subClassOf ceon-material:ChemicalEntity ;
+    rdfs:comment "Substance of Concern Alignment" .
+
+# Property Mappings 
+dpp-odp:hasPart a owl:ObjectProperty ;
+    rdfs:subPropertyOf ceon-product:hasProductComponent ,
+                       ceon-product:hasProductObjectComponent ;
+    rdfs:comment "hasPart Alignment" .

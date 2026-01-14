@@ -1,0 +1,42 @@
+@prefix dpp: <http://www.w3id.org/dpp#> .
+@prefix dpp-dppo: <http://www.w3id.org/dpp/alignment/dpp-dppo#> .
+@prefix dpp-comp: <http://w3id.org/dppo/ontology/dpp-info/> .
+@prefix dpp-core: <http://w3id.org/dppo/ontology/dpp-core/> .
+@prefix dpp-odp: <http://w3id.org/dppo/ontology/dpp-odp/> .
+@prefix dpp-prov: <http://w3id.org/dppo/ontology/dpp-prov/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# Ontology Declaration 
+<http://www.w3id.org/dpp/alignment/dpp-dppo> a owl:Ontology ;
+    owl:imports <http://www.w3id.org/dpp> ;
+    owl:imports <http://www.w3id.org/dppo> ;
+    dcterms:title "DPP-DPPO Alignment Ontology" ;
+    dcterms:creator "Rahel Kebede", "Eva Blomqvist", "Huanyu Li" ;
+    dcterms:contributor "Peter Johansson" ;
+    dcterms:description "An alignment ontology mapping the DPP and DPPO ontologies."@en .
+
+# Asserted Mappings 
+
+dpp:Product a owl:Class ;
+    rdfs:subClassOf dpp-odp:Product ;
+    rdfs:comment "Product Alignment" .
+
+dpp:Component a owl:Class ;
+    owl:equivalentClass dpp-core:Component ;
+    rdfs:comment "Component Alignment" .
+
+dpp:Material a owl:Class ;
+    rdfs:subClassOf dpp-core:Material ;
+    rdfs:comment "Material Alignment" .
+
+dpp:MaterialComposition a owl:Class ;
+    rdfs:subClassOf dpp-comp:CompositionInformation ;
+    rdfs:comment "Material Composition Alignment" .
+
+dpp:Agent a owl:Class ;
+    owl:equivalentClass dpp-prov:Actor ;
+    rdfs:comment "Agent Alignment" .
