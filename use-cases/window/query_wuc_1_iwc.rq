@@ -1,0 +1,26 @@
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dppo:  <https://w3id.org/dppo/ontology/>
+PREFIX glass: <https://w3id.org/glass/ontology/>           
+PREFIX qudt:  <http://qudt.org/schema/qudt/>      
+PREFIX quantitykind: <https://qudt.org/vocab/quantitykind/>
+PREFIX quantityunit: <http://qudt.org/vocab/unit/>
+PREFIX ceon:  <https://w3id.org/ceon/ontology/>
+PREFIX ex:    <http://example.org/>            
+       
+SELECT ?window ?glass  ?thickness_value ?material ?contains                        
+WHERE {    
+    ?window  a glass:Window .      
+    ?glass a glass:WindowGlass .
+    ?dpp dppo:describes ?window ; 
+         dppo:containsInformation ?thicknesscharacteristic .
+    ?thicknesscharacteristic dppo:isAbout ?glass ;
+                            qudt:hasQuantityKind quantitykind:Thickness; 
+                            dppo:value ?thickness_value .             
+    OPTIONAL {
+        ?dpp dppo:containsInformation ?materialcharacteristic .
+        ?materialcharacteristic dppo:isAbout ?glass ;
+                            dppo:characteristic ?material ;
+                            dppo:value ?contains .
+        ?material a ceon:Material .
+    }                                     
+ }                                   
