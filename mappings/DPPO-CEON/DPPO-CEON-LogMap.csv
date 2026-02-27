@@ -1,0 +1,5 @@
+dpp_module;subject_id;subject_source;object_source;predicate_id;object_id;subject_label;object_label;confidence;tool;cardinality;mapping_justification
+ceon;http://w3id.org/CEON/ontology/material/Material;Optional.of(http://w3id.org/CEON/ontology/full/);Optional.of(http://w3id.org/CEON/ontology/full/);;http://w3id.org/dppo/ontology/dpp-full/Material;Material;Material;0.5;LogMap;=;
+ceon;http://w3id.org/CEON/ontology/product/Product;Optional.of(http://w3id.org/CEON/ontology/full/);Optional.of(http://w3id.org/CEON/ontology/full/);;http://w3id.org/dppo/ontology/dpp-odp/Product;Product;Product;0.5;LogMap;=;
+ceon;http://w3id.org/CEON/ontology/actorODP/Actor;Optional.of(http://w3id.org/CEON/ontology/full/);Optional.of(http://w3id.org/CEON/ontology/full/);;http://w3id.org/dppo/ontology/dpp-prov/Actor;Actor;Actor;0.5;LogMap;=;
+ceon;http://w3id.org/CEON/ontology/resourceODP/hasPart;Optional.of(http://w3id.org/CEON/ontology/full/);Optional.of(http://w3id.org/CEON/ontology/full/);;http://w3id.org/dppo/ontology/dpp-odp/hasPart;hasPart;hasPart;1.0;LogMap;=;
