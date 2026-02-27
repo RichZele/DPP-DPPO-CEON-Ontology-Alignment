@@ -1,0 +1,132 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix semapv: <https://w3id.org/semapv/vocab/> .
+@prefix sssom: <https://w3id.org/sssom/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+owl:annotatedProperty a rdf:Property .
+
+owl:annotatedSource a rdf:Property .
+
+owl:annotatedTarget a rdf:Property .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/> a owl:Ontology ;
+    dcterms:contributor "Eva Blomqvist",
+        "Huanyu Li",
+        "Rahel Kebede" ;
+    dcterms:created "2026-01-23"^^xsd:date ;
+    dcterms:creator "Rahel Kebede" ;
+    dcterms:license "https://creativecommons.org/licenses/by/4.0/" ;
+    dcterms:source "https://github.com/RichZele/DPP-DPPO-CEON-Ontology-Alignment/blob/main/mappings/DPPO-CEON.xlsx" ;
+    dcterms:title "The alignment ontology between DPPO and CEON" ;
+    rdfs:comment "This ontology represents the alignment between the Digital Product Passport Ontology (DPPO) and Circular Economy Ontology Network (CEON)." ;
+    owl:versionInfo "0.1" .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0001> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0001" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "Both denote the generic notion of a product. DPPO’s Product is defined as the thing a DPP describes; CEON’s Product aligns with the same ISO definition. Thus, a one-to-one equivalence is appropriate, enabling a DPP-described product instance to be recognized as a CEON product instance." ;
+    owl:annotatedProperty owl:equivalentClass ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-odp/Product> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/Product> ;
+    sssom:mapping_justificatio semapv:ManualMappingCuration ;
+    sssom:object_label "Product" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "Product" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0002> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0002" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "DPPO defines Material as a subclass of Product, representing e.g. a bulk material or commodity that can itself have a passport. CEON’s Material is a class under Matter, conceptually “the stuff products are made of.” Despite the hierarchy difference, these classes refer to the same real-world category (materials like steel, plastic, wood). We align dppo:Material to ceon-material:Material as equivalent in intention, with the caveat that in CEON a Material is not a Product. In practice, this means if a DPP instance is typed as Material, we treat it as an instance of CEON Material (and not simultaneously a CEON Product). This alignment is semantically sound: DPP’s broad notion of product covers materials, but when translating to CEON, we cast those to the Material branch. This is a specialization alignment, effectively partitioning DPP’s Product category into CEON’s Product vs Material depending on the instance’s DPP subtype." ;
+    owl:annotatedProperty owl:equivalentClass ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-core/Material> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/material/Material> ;
+    sssom:mapping_justificatio semapv:ManualMappingCuration ;
+    sssom:object_label "Material" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "Material" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0003> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0003" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "DPPO uses Substance for basic chemical entities (elements or compounds) that might appear in a product’s composition or as regulated substances. CEON explicitly defines ChemicalSubstance and ChemicalElement classes. This can be seen as a specialization of DPPO's Substance class." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-core/Substance> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/material/ChemicalSubstance> ;
+    sssom:mapping_justificatio semapv:ManualMappingCuration ;
+    sssom:object_label "ChemicalSubstance" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "Substance" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0004> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0004" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "CEON does not have built-in classes for “substance of concern,” but DPPO defines these as special Substance subclasses per EU regulation. We align this by treating DPPO’s concern subclasses as subclasses of CEON’s ChemicalEntity or ChemicalSubstance. For example, map dppo:ToxicSubstance as subclass of ceon-material:ChemicalSubstance, and similarly for others. This maintains the intent (they are chemical substances) within CEON’s structure. The alignment type is partial: it introduces new specialization in CEON’s hierarchy. CEON’s material module can accommodate this extension (it was designed to be extended for domain-specific material classes). The mapping is justified because it enriches CEON with DPPO’s regulatory nuance – something CEON currently lacks. Conversely, from a CEON perspective, one could treat these alignments as annotations (e.g., link a substance to an external regulatory classification). But for ontology alignment, subclassing is straightforward and retains semantics (any DPP ToxicSubstance is a CEON ChemicalSubstance with an added property “is toxic” or simply by class membership)." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-comp/SubstanceOfConcern> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/material/ChemicalEntity> ;
+    sssom:mapping_justificatio semapv:ManualMappingCuration ;
+    sssom:object_label "ChemicalEntity" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "SubstanceOfConcern" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0005> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0005" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "DPPO uses one generic hasPart for products; CEON splits into model- and item-level shortcuts. Making both CEON properties subproperties of DPPO’s hasPart preserves DPPO queries and CEON’s extra precision. DPPO also infers partonomy from reified composition (see below)." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-odp/hasPart> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/hasProductComponent> ;
+    sssom:mapping_justificatio semapv:ManualMappingCuration ;
+    sssom:object_label "hasProductComponent" ;
+    sssom:object_type owl:ObjectProperty ;
+    sssom:subject_label "hasPart" ;
+    sssom:subject_type owl:ObjectProperty .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0006> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0006" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-odp/hasPart> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/hasProductObjectComponent> ;
+    sssom:mapping_justificatio semapv:ManualMappingCuration ;
+    sssom:object_label "hasProductObjectComponent" ;
+    sssom:object_type owl:ObjectProperty ;
+    sssom:subject_label "hasPart" ;
+    sssom:subject_type owl:ObjectProperty .
+
+<http://w3id.org/dppo/ontology/dpp-comp/SubstanceOfConcern> a owl:Class ;
+    rdfs:subClassOf <http://w3id.org/CEON/ontology/material/ChemicalEntity> .
+
+<http://w3id.org/dppo/ontology/dpp-core/Material> a owl:Class ;
+    owl:equivalentClass <http://w3id.org/CEON/ontology/material/Material> .
+
+<http://w3id.org/dppo/ontology/dpp-core/Substance> a owl:Class ;
+    rdfs:subClassOf <http://w3id.org/CEON/ontology/material/ChemicalSubstance> .
+
+<http://w3id.org/dppo/ontology/dpp-odp/Product> a owl:Class ;
+    owl:equivalentClass <http://w3id.org/CEON/ontology/product/Product> .
+
+<http://w3id.org/CEON/ontology/material/ChemicalEntity> a owl:Class .
+
+<http://w3id.org/CEON/ontology/material/ChemicalSubstance> a owl:Class .
+
+<http://w3id.org/CEON/ontology/material/Material> a owl:Class .
+
+<http://w3id.org/CEON/ontology/product/Product> a owl:Class .
+
+<http://w3id.org/CEON/ontology/product/hasProductComponent> a owl:ObjectProperty .
+
+<http://w3id.org/CEON/ontology/product/hasProductObjectComponent> a owl:ObjectProperty .
+
+<http://w3id.org/dppo/ontology/dpp-odp/hasPart> a owl:ObjectProperty ;
+    rdfs:subClassOf <http://w3id.org/CEON/ontology/product/hasProductComponent>,
+        <http://w3id.org/CEON/ontology/product/hasProductObjectComponent> .
+
