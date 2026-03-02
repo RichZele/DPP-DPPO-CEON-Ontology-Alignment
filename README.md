@@ -36,11 +36,11 @@ This repository includes the mappings and use case applications on these mapping
 
 ### Lighting fixture use case
 - [DisassemblyInstruction.ttl](use-cases/lightingFixture/DisassemblyInstruction.ttl)
-- [query_lfuc_1.rq](use-cases/lightingFixture/CQ1_Sparql-query_Disassembly_DPP-DPPO-CEON_2026-02-21.rq)
-- [query_lfuc_2.rq](use-cases/lightingFixture/CQ2_Sparql-query_Component-Removal_DPP-DPPO-CEON_2026-03-02.rq)
-- [query_lfuc_3.rq](use-cases/lightingFixture/CQ3_Sparql-query_model-batch-item_DPP-DPPO-CEON_2026-03-02.rq)
-- [query_lfuc_4.rq](use-cases/lightingFixture/CQ4_Sparql-query_too-retrieval_DPP-DPPO-CEON_2026-03-02.rq)
-- [query_lfuc_5.rq](use-cases/lightingFixture/CQ5_Sparql-query_Contextual-details_DPP-DPPO-CEON_2026-03-02.rq)
+- [CQ1_Disassembly-Sequence-And-Description.rq](use-cases/lightingFixture/CQ1_Sparql-query_Disassembly_DPP-DPPO-CEON_2026-02-21.rq)
+- [CQ2_Initial-Component-Removal.rq](use-cases/lightingFixture/CQ2_Sparql-query_Component-Removal_DPP-DPPO-CEON_2026-03-02.rq)
+- [CQ3_Model-Batch-Item-Records.rq](use-cases/lightingFixture/CQ3_Sparql-query_model-batch-item_DPP-DPPO-CEON_2026-03-02.rq)
+- [CQ4_Required-Tools-And-Materials.rq](use-cases/lightingFixture/CQ4_Sparql-query_too-retrieval_DPP-DPPO-CEON_2026-03-02.rq)
+- [CQ5_Temporal-And-Contextual-Details.rq](use-cases/lightingFixture/CQ5_Sparql-query_Contextual-details_DPP-DPPO-CEON_2026-03-02.rq)
 
 ### Window use case
 - [WindowBatchDPP.ttl](./use-cases/window/WindowBatchDPP.ttl)
