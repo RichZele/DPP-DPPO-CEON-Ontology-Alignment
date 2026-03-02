@@ -35,7 +35,7 @@ This repository includes the mappings and use case applications on these mapping
 ## Use case
 
 ### Lighting fixture use case
-- [DisassemblyInstruction.ttl](./use-cases/lighting-fixture/DisassemblyInstruction.ttl)
+- [DisassemblyInstruction.ttl](use-cases/lightingFixture/DisassemblyInstruction.ttl)
 - [query_lfuc_1.rq](./use-cases/lighting-fixture/query_lfuc_1.rq)
 - [query_lfuc_2.rq](./use-cases/lighting-fixture/query_lfuc_2.rq)
 
