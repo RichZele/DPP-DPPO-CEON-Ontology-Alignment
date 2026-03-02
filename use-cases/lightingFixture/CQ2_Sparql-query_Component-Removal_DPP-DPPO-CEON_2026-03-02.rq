@@ -1,0 +1,20 @@
+# CQ2 - SPARQL query to retrieve components removed during the disassembly of Notor65_BetaOpti
+PREFIX dpp:     <http://www.w3id.org/dpp#>
+PREFIX notor65: <http://www.w3id.org/dpp/fagerhult/notor65/data/#>
+PREFIX schema:  <http://schema.org/>
+
+SELECT DISTINCT ?component ?componentLabel ?step ?stepOrder
+WHERE {
+  # Sub steps of the disassembly stage
+  dpp:DisassembleLuminaire dpp:hasSubStep ?step .
+
+  # Sub step that actually removes components
+  ?step dpp:removes ?component ;
+        dpp:stepOrder ?stepOrder .
+
+  # Ensure that this component belongs to the Notor65_BetaOpti product
+  notor65:Notor65_BetaOpti dpp:hasComponent ?component .
+
+  OPTIONAL { ?component schema:name ?componentLabel . }
+}
+ORDER BY ?componentLabel

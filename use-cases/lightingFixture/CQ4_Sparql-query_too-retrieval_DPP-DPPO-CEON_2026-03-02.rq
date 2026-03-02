@@ -1,0 +1,22 @@
+# CQ4 - SPARQL query to retrieve tools that are required during the disassembly of Notor65_BetaOpti
+PREFIX notor65:     <http://www.w3id.org/dpp/fagerhult/notor65/data/#>
+PREFIX processODP:  <http://w3id.org/CEON/ontology/processODP/>
+PREFIX resourceODP: <http://w3id.org/CEON/ontology/resourceODP/>
+PREFIX schema:      <http://schema.org/>
+
+SELECT DISTINCT ?resource ?label
+WHERE {
+  notor65:Notor65_BetaOpti_DisassemblingProcess
+      processODP:hasInput ?resource .
+
+  ?resource a resourceODP:Resource .
+
+  FILTER ( ?resource != notor65:Notor65_BetaOpti )
+
+  OPTIONAL {
+    { ?resource schema:name ?label . }
+    UNION
+    { ?resource schema:description ?label . }
+  }
+}
+ORDER BY ?label

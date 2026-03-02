@@ -1,0 +1,46 @@
+PREFIX dpp:           <http://www.w3id.org/dpp#>
+PREFIX dpp-odp:       <http://www.w3id.org/dpp-odp#>
+PREFIX schema:        <http://schema.org/>
+PREFIX notor65:       <http://www.w3id.org/dpp/fagerhult/notor65/data/#>
+PREFIX ceon-product:  <https://w3id.org/CEON/ontology/product#>
+PREFIX ceon-process:  <https://w3id.org/CEON/ontology/process#>
+PREFIX resourceODP:   <https://w3id.org/CEON/ontology/resourceODP#>
+PREFIX processODP:    <https://w3id.org/CEON/ontology/processODP#>
+
+SELECT
+  ?step (MIN(?stepOrderRaw) AS ?stepOrder) ?stepDescription
+  ?subStep ?subStepOrder ?subStepDescription
+  ?dppInstance ?ceonProcess ?batch ?item
+WHERE {
+  notor65:Notor65_BetaOpti_DisassemblyInstruction
+      dpp:hasInstructionDetail ?step .
+  ?step dpp:stepOrder ?stepOrderRaw ;
+        schema:description ?stepDescription .
+
+  OPTIONAL {
+    ?step dpp:hasSubStep ?subStep .
+    ?subStep dpp:stepOrder ?subStepOrder ;
+             schema:description ?subStepDescription .
+  }
+
+  notor65:Notor65_BetaOpti
+      a dpp:Product , dpp-odp:Product , ceon-product:Product .
+
+  ?dppInstance a dpp-odp:DPP ;
+               dpp-odp:describes notor65:Notor65_BetaOpti ;
+               dpp:guidesProcess ?ceonProcess .
+
+  ?ceonProcess a ceon-process:DisassemblingProcess ;
+               processODP:hasInput notor65:Notor65_BetaOpti .
+
+  OPTIONAL { ?batch a resourceODP:BatchOfObjects ;
+                     ceon-product:batchOfProduct notor65:Notor65_BetaOpti . }
+
+  OPTIONAL { ?item  a ceon-product:Item ;
+                     ceon-product:modelledBy notor65:Notor65_BetaOpti . }
+}
+GROUP BY
+  ?step ?stepDescription
+  ?subStep ?subStepOrder ?subStepDescription
+  ?dppInstance ?ceonProcess ?batch ?item
+ORDER BY ?stepOrder ?subStepOrder

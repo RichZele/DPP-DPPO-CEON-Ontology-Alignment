@@ -1,0 +1,25 @@
+# SPARQL query to retrieve the lighting fixture model, associated batch records, and item records for Notor65_BetaOpti
+PREFIX dpp:           <http://www.w3id.org/dpp#>
+PREFIX dpp-odp:       <http://www.w3id.org/dpp-odp#>
+PREFIX ceon-product:  <https://w3id.org/CEON/ontology/product#>
+PREFIX resourceODP:   <https://w3id.org/CEON/ontology/resourceODP#>
+PREFIX notor65:       <http://www.w3id.org/dpp/fagerhult/notor65/data/#>
+
+SELECT DISTINCT ?productModel ?batch ?item
+
+WHERE {
+  # The lighting fixture model
+  BIND(notor65:Notor65_BetaOpti AS ?productModel)
+
+  # Batch records associated with this model
+  OPTIONAL {
+    ?batch a resourceODP:BatchOfObjects ;
+           ceon-product:batchOfProduct ?productModel .
+  }
+
+  # Item records associated with this model
+  OPTIONAL {
+    ?item a ceon-product:Item ;
+          ceon-product:modelledBy ?productModel .
+  }
+}

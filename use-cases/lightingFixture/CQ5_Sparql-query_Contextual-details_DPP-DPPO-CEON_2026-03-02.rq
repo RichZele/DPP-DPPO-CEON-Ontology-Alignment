@@ -1,0 +1,18 @@
+# CQ5 - SPARQL query to retrieve contextual details that are specified for the diassembly process of Notor65_BetaOpti
+PREFIX notor65: <http://www.w3id.org/dpp/fagerhult/notor65/data/#>
+PREFIX dpp:     <http://www.w3id.org/dpp#>
+PREFIX schema:  <http://schema.org/>
+
+SELECT
+  ?context
+  ?description
+  ?location
+  ?category
+WHERE {
+  notor65:Notor65_BetaOpti_DisassemblyInstruction
+      dpp:hasContext ?context .
+
+  OPTIONAL { ?context schema:description ?description . }
+  OPTIONAL { ?context schema:location ?location . }
+  OPTIONAL { ?context schema:category ?category . }
+}
