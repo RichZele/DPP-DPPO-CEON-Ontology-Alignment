@@ -1,0 +1,4 @@
+component,componentLabel,step,stepOrder
+http://www.w3id.org/dpp/fagerhult/notor65/data/#glareProtection_N65BO,Beta Opti glare protection,http://www.w3id.org/dpp#ComponentRemoval,3.2
+http://www.w3id.org/dpp/fagerhult/notor65/data/#lens_N65BO,Optical lens,http://www.w3id.org/dpp#ComponentRemoval,3.2
+http://www.w3id.org/dpp/fagerhult/notor65/data/#reflector_N65BO,Optical reflector,http://www.w3id.org/dpp#ComponentRemoval,3.2
