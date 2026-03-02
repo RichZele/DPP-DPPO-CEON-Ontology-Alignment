@@ -12,7 +12,6 @@
 
 #################################################################
 # DPP product and disassembly instruction
-#   this section is taken from your uploaded file
 #################################################################
 
 notor65:Notor65_BetaOpti a dpp:Product ;
@@ -158,8 +157,6 @@ dpp:guidesProcess a rdf:Property ;
 # Application use case instances for DPPO and CEON
 #################################################################
 
-# Use the same product individual across DPP, DPPO and CEON
-
 notor65:Notor65_BetaOpti
     a dpp-odp:Product ,
       ceon-product:Product .
@@ -201,7 +198,7 @@ notor65:reflector_N65BO
     a dpp:Reflector ;
     schema:name "Optical reflector"@en .
 
-# Extend the product to include these components
+# components
 
 notor65:Notor65_BetaOpti
     a dpp:Product ;
@@ -258,7 +255,7 @@ notor65:ProtectiveGloves_N65BO
     schema:name "Protective gloves for handling the luminaire"@en .
 
 #################################################################
-# State that these resources are required during disassembly
+# Resources required during disassembly
 #################################################################
 
 notor65:Notor65_BetaOpti_DisassemblingProcess
@@ -266,10 +263,6 @@ notor65:Notor65_BetaOpti_DisassemblingProcess
     processODP:hasInput notor65:Notor65_BetaOpti ,
                         notor65:SuitableTools_N65BO ,
                         notor65:ProtectiveGloves_N65BO .
-
-#################################################################
-# Resources required during the disassembly process
-#################################################################
 
 notor65:SuitableTools_N65BO
     a resourceODP:Resource ;
@@ -341,10 +334,6 @@ notor65:ProtectiveGloves_N65BO
     a resourceODP:Resource ;
     schema:name "Protective gloves for handling the luminaire"@en .
 
-#################################################################
-# Existing resources (for context)
-#################################################################
-
 notor65:SuitableTools_N65BO
     a resourceODP:Resource ;
     schema:description "Suitable tools to loosen screws and other fastenings"@en .
@@ -352,10 +341,6 @@ notor65:SuitableTools_N65BO
 notor65:ProtectiveGloves_N65BO
     a resourceODP:Resource ;
     schema:name "Protective gloves for handling the luminaire"@en .
-
-#################################################################
-# New screwdriver resource
-#################################################################
 
 notor65:Screwdriver_N65BO
     a resourceODP:Resource ;
@@ -387,4 +372,5 @@ notor65:Notor65_BetaOpti_DisassemblyContext
 
 notor65:Notor65_BetaOpti_DisassemblyInstruction
     a dpp:DisassemblyInstruction ;
+
     dpp:hasContext notor65:Notor65_BetaOpti_DisassemblyContext .
