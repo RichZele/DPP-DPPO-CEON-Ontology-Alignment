@@ -44,8 +44,8 @@ This repository includes the mappings and use case applications on these mapping
 - [CQL-3_Model-Batch-Item-Records_results.csv](use-cases/lightingFixture/CQ3_Model-Batch-Item-Records_Notor65_results.csv)
 - [CQL-4_Required-Tools-And-Materials.rq](use-cases/lightingFixture/CQ4_Sparql-query_too-retrieval_DPP-DPPO-CEON_2026-03-02.rq)
 - [CQL-4_Required-Tools-And-Materials_results.csv](use-cases/lightingFixture/CQ4_Required-Tools-And-Materials_Notor65_results.csv)
-- [CQL-5_Temporal-And-Contextual-Details.rq](use-cases/lightingFixture/CQ5_Sparql-query_Contextual-details_DPP-DPPO-CEON_2026-03-02.rq)
-- [CQL-5_Temporal-And-Contextual-Details_results.csv](use-cases/lightingFixture/CQ5_Temporal-And-Contextual-Details_Notor65_results.csv)
+- [CQL-5_Contextual-Details.rq](use-cases/lightingFixture/CQ5_Sparql-query_Contextual-details_DPP-DPPO-CEON_2026-03-02.rq)
+- [CQL-5_Contextual-Details_results.csv](use-cases/lightingFixture/CQ5_Temporal-And-Contextual-Details_Notor65_results.csv)
 
 ### Window use case
 - [WindowBatchDPP.ttl](./use-cases/window/WindowBatchDPP.ttl)
