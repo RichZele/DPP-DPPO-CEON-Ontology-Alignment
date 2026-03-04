@@ -37,15 +37,15 @@ This repository includes the mappings and use case applications on these mapping
 ### Lighting fixture use case
 - [DisassemblyInstruction.ttl](use-cases/lightingFixture/DisassemblyInstruction.ttl)
 - [CQL-1_Disassembly-Sequence-And-Description.rq](use-cases/lightingFixture/CQ1_Sparql-query_Disassembly_DPP-DPPO-CEON_2026-02-21.rq)
-- [CQL-1_Disassembly-Sequence-And-Description_results.csv](use-cases/lightingFixture/CQ1_Disassembly-Sequence-And-Description_Notor65_results.csv)       
+- [CQL-1_Disassembly-Sequence-And-Description_Results.csv](use-cases/lightingFixture/CQ1_Disassembly-Sequence-And-Description_Notor65_results.csv)       
 - [CQL-2_Initial-Component-Removal.rq](use-cases/lightingFixture/CQ2_Sparql-query_Component-Removal_DPP-DPPO-CEON_2026-03-02.rq)
-- [CQL-2_Initial-Component-Removal_results.csv](use-cases/lightingFixture/CQ2_Initial-Component-Removal_Notor65_results.csv)
+- [CQL-2_Initial-Component-Removal_Results.csv](use-cases/lightingFixture/CQ2_Initial-Component-Removal_Notor65_results.csv)
 - [CQL-3_Model-Batch-Item-Records.rq](use-cases/lightingFixture/CQ3_Sparql-query_model-batch-item_DPP-DPPO-CEON_2026-03-02.rq)
-- [CQL-3_Model-Batch-Item-Records_results.csv](use-cases/lightingFixture/CQ3_Model-Batch-Item-Records_Notor65_results.csv)
+- [CQL-3_Model-Batch-Item-Records_Results.csv](use-cases/lightingFixture/CQ3_Model-Batch-Item-Records_Notor65_results.csv)
 - [CQL-4_Required-Tools-And-Materials.rq](use-cases/lightingFixture/CQ4_Sparql-query_too-retrieval_DPP-DPPO-CEON_2026-03-02.rq)
-- [CQL-4_Required-Tools-And-Materials_results.csv](use-cases/lightingFixture/CQ4_Required-Tools-And-Materials_Notor65_results.csv)
+- [CQL-4_Required-Tools-And-Materials_Results.csv](use-cases/lightingFixture/CQ4_Required-Tools-And-Materials_Notor65_results.csv)
 - [CQL-5_Contextual-Details.rq](use-cases/lightingFixture/CQ5_Sparql-query_Contextual-details_DPP-DPPO-CEON_2026-03-02.rq)
-- [CQL-5_Contextual-Details_results.csv](use-cases/lightingFixture/CQ5_Temporal-And-Contextual-Details_Notor65_results.csv)
+- [CQL-5_Contextual-Details_Results.csv](use-cases/lightingFixture/CQ5_Temporal-And-Contextual-Details_Notor65_results.csv)
 
 ### Window use case
 - [WindowBatchDPP.ttl](./use-cases/window/WindowBatchDPP.ttl)
