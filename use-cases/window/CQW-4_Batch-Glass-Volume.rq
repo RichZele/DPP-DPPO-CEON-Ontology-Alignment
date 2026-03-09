@@ -1,0 +1,8 @@
+PREFIX ceon:  <https://w3id.org/ceon/ontology/>
+       
+SELECT ?batch ?product_item ?bacth_volume                       
+WHERE {    
+    ?batch a ceon:BatchOfObjects ;
+  		   ceon:batchOfProduct ?product_item ;
+  		   ceon:batchSize ?bacth_volume .
+ }  
