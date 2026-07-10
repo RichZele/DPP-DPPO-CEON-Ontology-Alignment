@@ -1,0 +1,47 @@
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix dpp:   <http://w3id.org/dpp#> .
+@prefix ident: <https://archive.org/services/purl/domain/modular_ontology_design_library/identifier#> .
+@prefix gs1:   <https://www.gs1.org/voc/> .
+@prefix dppsh: <http://w3id.org/dpp/alignment/shapes#> .
+
+#################################################################
+# GS1 GTIN to DPP identifier consistency shape
+#
+# The GS1 vocabulary relates a product directly to a GTIN literal through
+# the datatype property gs1:gtin. The DPP ontology instead reifies every
+# external identifier as an instance of ident:Identifier that carries the
+# literal through ident:identifierAsText and declares its scheme through
+# ident:hasIdentifierType.
+#
+# The Description Logic axiom in the paper,
+#   exists gs1:gtin.xsd:string  SubClassOf
+#     exists ident:hasIdentifier.(ident:Identifier and
+#                                 exists ident:identifierAsText.xsd:string),
+# only guarantees that some reified identifier with some string exists. OWL
+# class axioms cannot require that the literal value of gs1:gtin equals the
+# literal value attached to the reified identifier node. This SHACL shape
+# enforces exactly that equality, so the two representations stay in sync
+# without altering either ontology.
+#################################################################
+
+dppsh:GS1GtinIdentifierShape a sh:NodeShape ;
+    rdfs:label "GS1 GTIN and DPP identifier consistency shape"@en ;
+    rdfs:comment "For every product that carries a gs1:gtin value, there must exist a reified DPP identifier (ident:hasIdentifier) whose ident:identifierAsText equals that GTIN literal. This enforces the literal equality that the OWL class axiom cannot express."@en ;
+    sh:targetSubjectsOf gs1:gtin ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A product with a gs1:gtin value must also have a reified DPP identifier whose identifierAsText equals the GTIN literal (GS1 GTIN scheme)."@en ;
+        sh:select """
+            SELECT $this ?gtin
+            WHERE {
+                $this <https://www.gs1.org/voc/gtin> ?gtin .
+                FILTER NOT EXISTS {
+                    $this <https://archive.org/services/purl/domain/modular_ontology_design_library/identifier#hasIdentifier> ?id .
+                    ?id  <https://archive.org/services/purl/domain/modular_ontology_design_library/identifier#identifierAsText> ?gtin .
+                }
+            }
+        """ ;
+    ] .

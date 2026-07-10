@@ -32,6 +32,19 @@ This repository includes the mappings and use case applications on these mapping
 - [http://w3id.org/dpp/alignment/dpp-dppo](http://w3id.org/dpp/alignment/dpp-dppo)
 - [http://w3id.org/dpp/alignment/dppo-ceon](http://w3id.org/dpp/alignment/dppo-ceon)
 
+## SHACL shapes
+
+The GS1 datatype property `gs1:gtin` relates a product directly to a GTIN literal, whereas the DPP ontology reifies every identifier as an `ident:Identifier` carrying the literal through `ident:identifierAsText`. An OWL class axiom can require that a reified identifier exists, but it cannot require that its literal value equals the `gs1:gtin` literal. The following SHACL shape enforces that equality, keeping the two representations in sync without changing either ontology.
+
+- [gs1-gtin-identifier-consistency.shacl.ttl](./shapes/gs1-gtin-identifier-consistency.shacl.ttl): SPARQL-based SHACL shape enforcing that every `gs1:gtin` value is mirrored by a reified DPP identifier whose `identifierAsText` equals that GTIN literal.
+- [gs1-gtin-identifier-example.ttl](./shapes/gs1-gtin-identifier-example.ttl): small example dataset (one conformant product, two violating ones).
+
+Validate with:
+
+```
+pyshacl -s shapes/gs1-gtin-identifier-consistency.shacl.ttl shapes/gs1-gtin-identifier-example.ttl
+```
+
 ## Use case
 
 ### Lighting fixture use case

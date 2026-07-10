@@ -1,0 +1,26 @@
+@prefix dpp:   <http://w3id.org/dpp#> .
+@prefix ident: <https://archive.org/services/purl/domain/modular_ontology_design_library/identifier#> .
+@prefix gs1:   <https://www.gs1.org/voc/> .
+@prefix ex:    <http://example.org/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+# Example data for gs1-gtin-identifier-consistency.shacl.ttl
+# Validate with:  pyshacl -s gs1-gtin-identifier-consistency.shacl.ttl gs1-gtin-identifier-example.ttl
+# Expected: ProductA conforms; ProductB and ProductC report a violation.
+
+# CONFORMANT: the gs1:gtin literal equals the reified identifier's identifierAsText
+ex:ProductA gs1:gtin "07350053850019" ;
+    ident:hasIdentifier ex:ProductA_id .
+ex:ProductA_id a ident:Identifier ;
+    ident:identifierAsText "07350053850019" ;
+    ident:hasIdentifierType ex:GTIN .
+
+# VIOLATING: the gs1:gtin literal differs from the reified identifier's identifierAsText
+ex:ProductB gs1:gtin "07350053850019" ;
+    ident:hasIdentifier ex:ProductB_id .
+ex:ProductB_id a ident:Identifier ;
+    ident:identifierAsText "99999999999999" ;
+    ident:hasIdentifierType ex:GTIN .
+
+# VIOLATING: a gs1:gtin literal but no reified DPP identifier at all
+ex:ProductC gs1:gtin "07350053850026" .
