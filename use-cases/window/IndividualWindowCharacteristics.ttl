@@ -1,9 +1,12 @@
+@prefix ceon-material:  <http://w3id.org/CEON/ontology/material/> .
+@prefix ceon-product:   <http://w3id.org/CEON/ontology/product/> .
+@prefix dpp-core:       <http://w3id.org/dppo/ontology/dpp-core/> .
+@prefix dpp-info:       <http://w3id.org/dppo/ontology/dpp-info/> .
+@prefix dpp-odp:        <http://w3id.org/dppo/ontology/dpp-odp/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix ceon:  <https://w3id.org/ceon/ontology/> .
-@prefix dppo:  <https://w3id.org/dppo/ontology/> .
 @prefix glass: <https://w3id.org/glass/ontology/> .
 @prefix ifc:   <https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#> .
 @prefix qudt:  <http://qudt.org/schema/qudt/> .
@@ -15,8 +18,8 @@
 # Classes (14 concepts)
 # ====================
 
-ceon:MatterComposition a owl:Class .
-ceon:Material a owl:Class .
+ceon-product:MatterComposition a owl:Class .
+ceon-material:Material a owl:Class .
 
 ifc:BuiltElement a owl:Class .
 
@@ -26,20 +29,20 @@ glass:Window a owl:Class ;
 glass:WindowGlass a owl:Class ;
     rdfs:subClassOf ifc:BuiltElement .
 
-dppo:DPP a owl:Class .
+dpp-odp:DPP a owl:Class .
 
-dppo:Product a owl:Class .
+dpp-odp:Product a owl:Class .
 
-dppo:Substance a owl:Class ;
-    rdfs:subClassOf dppo:Product .
+dpp-core:Substance a owl:Class ;
+    rdfs:subClassOf dpp-odp:Product .
 
-dppo:DPPInformation a owl:Class .
+dpp-info:DPPInformation a owl:Class .
 
-dppo:CompositionInformation a owl:Class ;
-    rdfs:subClassOf dppo:DPPInformation .
+dpp-info:CompositionInformation a owl:Class ;
+    rdfs:subClassOf dpp-info:DPPInformation .
 
-dppo:ProductCharacteristic a owl:Class ;
-    rdfs:subClassOf dppo:DPPInformation .
+dpp-info:ProductCharacteristic a owl:Class ;
+    rdfs:subClassOf dpp-info:DPPInformation .
 
 qudt:QuantityKind a owl:Class .
 
@@ -49,63 +52,61 @@ qudt:Unit a owl:Class .
 # Instances & Relationships
 # ====================
 
-ex:FireClass  a ceon:Material .
+ex:FireClass  a ceon-material:Material .
 
-ex:Asbestos  a ceon:Material .
+ex:Asbestos  a ceon-material:Material .
 
 # _a: a product that is a window
-ex:_a a ceon:Item , glass:Window ;
+ex:_a a ceon-product:Item , glass:Window ;
     glass:numberOfPanes "2"^^xsd:integer .
 
 # itemDPP_1: the Digital Product Passport
-ex:itemDPP_1 a dppo:DPP ;
-    dppo:describes ex:_a ;
-    dppo:containsInformation ex:_c , ex:_f , ex:_e, ex:_g, ex:_i, ex:_h .
+ex:itemDPP_1 a dpp-odp:DPP ;
+    dpp-odp:describes ex:_a ;
+    dpp-info:containsInformation ex:_c , ex:_f , ex:_e, ex:_g, ex:_i, ex:_h .
 
 # _c: composition information about the window
-ex:_c a dppo:CompositionInformation ;
-    dppo:hasWhole ex:_a ;
-    dppo:hasPart ex:_b , ex:_d .
+ex:_c a dpp-info:CompositionInformation ;
+    dpp-info:hasWhole ex:_a ;
+    dpp-odp:hasPart ex:_b , ex:_d .
 
 # _b and _d: window glass parts
 ex:_b a glass:WindowGlass .
 
 ex:_d a glass:WindowGlass .
 
-
 # _e: product characteristic about _b (thickness = 2 mm)
-ex:_e a dppo:ProductCharacteristic ;
-    dppo:isAbout ex:_b ;
-    dppo:value "2"^^xsd:integer ;
+ex:_e a dpp-info:ProductCharacteristic ;
+    dpp-info:isAbout ex:_b ;
+    dpp-info:value "2"^^xsd:integer ;
     qudt:hasQuantityKind quantitykind:Thickness ;
     qudt:unit quantityunit:MilliM .
 
 # _f: product characteristic about _d (thickness = 3 mm)
-ex:_f a dppo:ProductCharacteristic ;
-    dppo:isAbout ex:_d ;
-    dppo:value "3"^^xsd:integer ;
+ex:_f a dpp-info:ProductCharacteristic ;
+    dpp-info:isAbout ex:_d ;
+    dpp-info:value "3"^^xsd:integer ;
     qudt:hasQuantityKind quantitykind:Thickness ;
     qudt:unit quantityunit:MilliM .
 
 # _g: product characteristic about _d (area = 3 squaremeter)
-ex:_g a dppo:ProductCharacteristic ;
-    dppo:isAbout ex:_a ;
-    dppo:value "1.54"^^xsd:integer ;
+ex:_g a dpp-info:ProductCharacteristic ;
+    dpp-info:isAbout ex:_a ;
+    dpp-info:value "1.54"^^xsd:decimal ;
     qudt:hasQuantityKind quantitykind:Area ;
     qudt:unit quantityunit:M2 .
 
-
 # _h: product characteristic about _d 
-ex:_h a dppo:ProductCharacteristic ;
-    dppo:isAbout ex:_d ;
-    dppo:value "false"^^xsd:boolean ;
-    dppo:characteristic ex:FireClass .
+ex:_h a dpp-info:ProductCharacteristic ;
+    dpp-info:isAbout ex:_d ;
+    dpp-info:value "false"^^xsd:boolean ;
+    dpp-info:characteristic ex:FireClass .
 
 # _i: product characteristic about _d 
-ex:_i a dppo:ProductCharacteristic ;
-    dppo:isAbout ex:_d ;
-    dppo:value "false"^^xsd:boolean ;
-    dppo:characteristic ex:Asbestos .
+ex:_i a dpp-info:ProductCharacteristic ;
+    dpp-info:isAbout ex:_d ;
+    dpp-info:value "false"^^xsd:boolean ;
+    dpp-info:characteristic ex:Asbestos .
 
 # Quantity kind and unit instances
 quantitykind:Thickness a qudt:QuantityKind .

@@ -1,11 +1,11 @@
-PREFIX dpp:           <http://www.w3id.org/dpp#>
-PREFIX dpp-odp:       <http://www.w3id.org/dpp-odp#>
+PREFIX ceon-process:  <http://w3id.org/CEON/ontology/process/>
+PREFIX ceon-product:  <http://w3id.org/CEON/ontology/product/>
+PREFIX dpp:           <http://w3id.org/dpp#>
+PREFIX dpp-odp:       <http://w3id.org/dppo/ontology/dpp-odp/>
+PREFIX processODP:    <http://w3id.org/CEON/ontology/processODP/>
+PREFIX resourceODP:   <http://w3id.org/CEON/ontology/resourceODP/>
 PREFIX schema:        <http://schema.org/>
-PREFIX notor65:       <http://www.w3id.org/dpp/fagerhult/notor65/data/#>
-PREFIX ceon-product:  <https://w3id.org/CEON/ontology/product#>
-PREFIX ceon-process:  <https://w3id.org/CEON/ontology/process#>
-PREFIX resourceODP:   <https://w3id.org/CEON/ontology/resourceODP#>
-PREFIX processODP:    <https://w3id.org/CEON/ontology/processODP#>
+PREFIX notor65:       <http://w3id.org/dpp/fagerhult/notor65/data/#>
 
 SELECT
   ?step (MIN(?stepOrderRaw) AS ?stepOrder) ?stepDescription

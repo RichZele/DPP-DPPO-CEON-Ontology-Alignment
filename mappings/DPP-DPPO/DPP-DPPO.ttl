@@ -30,9 +30,9 @@ owl:annotatedTarget a rdf:Property .
     dcterms:source "https://w3id.org/dpp/alignment/dpp-dppo/" ;
     rdfs:comment "DPP is stricter: product≠material; DPPO keeps them possibly overlapping. Subclass mapping preserves DPPO’s sector-agnostic stance without breaking DPP's disjointness." ;
     owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedSource <http://www.w3id.org/dpp#Product> ;
+    owl:annotatedSource <http://w3id.org/dpp#Product> ;
     owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-odp/Product> ;
-    sssom:mapping_justificatio semapv:ManualMappingCuration ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
     sssom:object_label "Product" ;
     sssom:object_type owl:Class ;
     sssom:subject_label "Product" ;
@@ -43,9 +43,9 @@ owl:annotatedTarget a rdf:Property .
     dcterms:source "https://w3id.org/dpp/alignment/dpp-dppo/" ;
     rdfs:comment "Both represent part-whole relationships. Structural correspondence: both as subclasses of Product with part-of links. Modular alignment allows complex product breakdowns in DPP (e.g., building elements into sub-components) to map into DPPO’s composition pattern." ;
     owl:annotatedProperty owl:equivalentClass ;
-    owl:annotatedSource <http://www.w3id.org/dpp#Component> ;
+    owl:annotatedSource <http://w3id.org/dpp#Component> ;
     owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-core/Component> ;
-    sssom:mapping_justificatio semapv:ManualMappingCuration ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
     sssom:object_label "Component" ;
     sssom:object_type owl:Class ;
     sssom:subject_label "Component" ;
@@ -56,9 +56,9 @@ owl:annotatedTarget a rdf:Property .
     dcterms:source "https://w3id.org/dpp/alignment/dpp-dppo/" ;
     rdfs:comment "Semantically equivalent: both capture the matter constituting products/parts. Subclass mapping (dppo:Material ⊑ dppo:Product) reflects DPPO’s flexibility; DPP’s modular placement preserves structure. Alignment preserves CE relevance (resource loops, recyclability)." ;
     owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedSource <http://www.w3id.org/dpp#Material> ;
+    owl:annotatedSource <http://w3id.org/dpp#Material> ;
     owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-core/Material> ;
-    sssom:mapping_justificatio semapv:ManualMappingCuration ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
     sssom:object_label "Material" ;
     sssom:object_type owl:Class ;
     sssom:subject_label "Material" ;
@@ -69,9 +69,9 @@ owl:annotatedTarget a rdf:Property .
     dcterms:source "https://w3id.org/dpp/alignment/dpp-dppo/" ;
     rdfs:comment "Both model partonomy as first-class nodes; quantitative details remain attached to the reified link." ;
     owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedSource <http://www.w3id.org/dpp#MaterialComposition> ;
+    owl:annotatedSource <http://w3id.org/dpp#MaterialComposition> ;
     owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-info/CompositionInformation> ;
-    sssom:mapping_justificatio semapv:ManualMappingCuration ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
     sssom:object_label "CompositionInformation" ;
     sssom:object_type owl:Class ;
     sssom:subject_label "MaterialComposition" ;
@@ -82,27 +82,27 @@ owl:annotatedTarget a rdf:Property .
     dcterms:source "https://w3id.org/dpp/alignment/dpp-dppo/" ;
     rdfs:comment "For product-level roles, keep DPP’s AgentRole on dpp:Product; additionally mint DPPO responsibleActor on each DPPInformation item to meet DPPO’s auditability." ;
     owl:annotatedProperty owl:equivalentClass ;
-    owl:annotatedSource <http://www.w3id.org/dpp#Agent> ;
+    owl:annotatedSource <http://w3id.org/dpp#Agent> ;
     owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-prov/Actor> ;
-    sssom:mapping_justificatio semapv:ManualMappingCuration ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
     sssom:object_label "Actor" ;
     sssom:object_type owl:Class ;
     sssom:subject_label "Agent" ;
     sssom:subject_type owl:Class .
 
-<http://www.w3id.org/dpp#Agent> a owl:Class ;
+<http://w3id.org/dpp#Agent> a owl:Class ;
     owl:equivalentClass <http://w3id.org/dppo/ontology/dpp-prov/Actor> .
 
-<http://www.w3id.org/dpp#Component> a owl:Class ;
+<http://w3id.org/dpp#Component> a owl:Class ;
     owl:equivalentClass <http://w3id.org/dppo/ontology/dpp-core/Component> .
 
-<http://www.w3id.org/dpp#Material> a owl:Class ;
+<http://w3id.org/dpp#Material> a owl:Class ;
     rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-core/Material> .
 
-<http://www.w3id.org/dpp#MaterialComposition> a owl:Class ;
+<http://w3id.org/dpp#MaterialComposition> a owl:Class ;
     rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-info/CompositionInformation> .
 
-<http://www.w3id.org/dpp#Product> a owl:Class ;
+<http://w3id.org/dpp#Product> a owl:Class ;
     rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-odp/Product> .
 
 <http://w3id.org/dppo/ontology/dpp-core/Component> a owl:Class .

@@ -1,8 +1,9 @@
-PREFIX ceon:  <https://w3id.org/ceon/ontology/>
+PREFIX ceon-product:  <http://w3id.org/CEON/ontology/product/>
+PREFIX resourceODP:   <http://w3id.org/CEON/ontology/resourceODP/>
        
 SELECT ?batch ?product_item ?bacth_volume                       
 WHERE {    
-    ?batch a ceon:BatchOfObjects ;
-  		   ceon:batchOfProduct ?product_item ;
-  		   ceon:batchSize ?bacth_volume .
+    ?batch a resourceODP:BatchOfObjects ;
+  		   ceon-product:batchOfProduct ?product_item ;
+  		   resourceODP:batchSize ?bacth_volume .
  }  

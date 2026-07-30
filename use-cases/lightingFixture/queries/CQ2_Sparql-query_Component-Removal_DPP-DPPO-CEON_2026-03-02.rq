@@ -1,6 +1,6 @@
 # CQ2 - SPARQL query to retrieve components removed during the disassembly of Notor65_BetaOpti
-PREFIX dpp:     <http://www.w3id.org/dpp#>
-PREFIX notor65: <http://www.w3id.org/dpp/fagerhult/notor65/data/#>
+PREFIX dpp:  <http://w3id.org/dpp#>
+PREFIX notor65: <http://w3id.org/dpp/fagerhult/notor65/data/#>
 PREFIX schema:  <http://schema.org/>
 
 SELECT DISTINCT ?component ?componentLabel ?step ?stepOrder

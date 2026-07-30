@@ -1,14 +1,15 @@
-@prefix dpp:           <http://www.w3id.org/dpp#> .
-@prefix notor65:       <http://www.w3id.org/dpp/fagerhult/notor65/data/#> .
+@prefix ceon-process:  <http://w3id.org/CEON/ontology/process/> .
+@prefix ceon-product:  <http://w3id.org/CEON/ontology/product/> .
+@prefix dpp:           <http://w3id.org/dpp#> .
+@prefix dpp-odp:       <http://w3id.org/dppo/ontology/dpp-odp/> .
+@prefix processODP:    <http://w3id.org/CEON/ontology/processODP/> .
+@prefix resourceODP:   <http://w3id.org/CEON/ontology/resourceODP/> .
+@prefix notor65:       <http://w3id.org/dpp/fagerhult/notor65/data/#> .
+@prefix rdf:           <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:          <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:           <http://www.w3.org/2002/07/owl#> .
 @prefix schema:        <http://schema.org/> .
 @prefix xsd:           <http://www.w3.org/2001/XMLSchema#> .
-
-@prefix dpp-odp:       <http://w3id.org/dppo/ontology/dpp-odp/> .
-@prefix ceon-product:  <http://w3id.org/CEON/ontology/product/> .
-@prefix ceon-process:  <http://w3id.org/CEON/ontology/process/> .
-@prefix resourceODP:   <http://w3id.org/CEON/ontology/resourceODP/> .
-@prefix processODP:    <http://w3id.org/CEON/ontology/processODP/> .
 
 #################################################################
 # DPP product and disassembly instruction
