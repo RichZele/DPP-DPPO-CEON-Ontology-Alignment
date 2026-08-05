@@ -102,11 +102,112 @@ owl:annotatedTarget a rdf:Property .
     sssom:subject_label "hasProductObjectComponent" ;
     sssom:subject_type owl:ObjectProperty .
 
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0007> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0007" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "Both classes reify composition. DPPO's CompositionInformation is a piece of information about the composition of a product; CEON's Composition represents a composing relation. Stated as an equivalence in the Material Composition section of the accompanying paper." ;
+    owl:annotatedProperty owl:equivalentClass ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-info/CompositionInformation> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/Composition> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "Composition" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "CompositionInformation" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0008> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0008" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "CEON does not define a separate component class; components are products related through ceon-product:hasProductComponent. DPPO's Component, itself a subclass of dpp-odp:Product, is therefore aligned as a specialisation of ceon-product:Product. Stated in the Product Component and Partonomy Alignment section of the accompanying paper." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-core/Component> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/Product> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "Product" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "Component" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0009> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0009" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "Both properties anchor a reified composition to the whole it describes. Stated as an equivalence in the Product Component and Partonomy Alignment section of the accompanying paper for the product-to-product case. Note that in the published DPPO the domain of dpp-comp:aboutWhole is stated using a version-qualified IRI (dpp-info/0.1/CompositionInformation) that does not match the unversioned class declared in dpp-info, while ceon-product:associatedWithProductModel is declared with domain ProductComposition, a specialisation of ceon-product:Composition." ;
+    owl:annotatedProperty owl:equivalentProperty ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-comp/aboutWhole> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/associatedWithProductModel> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "associatedWithProductModel" ;
+    sssom:object_type owl:ObjectProperty ;
+    sssom:subject_label "aboutWhole" ;
+    sssom:subject_type owl:ObjectProperty .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0010> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0010" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "DPPO's DPPInformation is a piece of information contained in a DPP and about a product; CEON's resourceODP:Information is the general notion of information about a resource. Stated in the Digital Product Passport as Document section of the accompanying paper." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-info/DPPInformation> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/resourceODP/Information> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "Information" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "DPPInformation" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0011> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0011" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "DPPO relates a DPP to the pieces of information it contains; the CEON property is the general containment relation between a collection of information and its parts. Stated in the Digital Product Passport as Document section of the accompanying paper." ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-info/containsInformation> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/resourceODP/containsInformation> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "containsInformation" ;
+    sssom:object_type owl:ObjectProperty ;
+    sssom:subject_label "containsInformation" ;
+    sssom:subject_type owl:ObjectProperty .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0012> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0012" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "Expressed as a subsumption rather than an equivalence to prevent unintended inferences arising from the domain restriction of dpp-odp:describes. Stated in the Digital Product Passport as Document section of the accompanying paper." ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-odp/describes> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/resourceODP/isAbout> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "isAbout" ;
+    sssom:object_type owl:ObjectProperty ;
+    sssom:subject_label "describes" ;
+    sssom:subject_type owl:ObjectProperty .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0013> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0013" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "Generalises DPPO_CEON_0012: dpp-odp:describes is declared a subproperty of dpp-info:isAbout within DPPO, and both isAbout properties relate a piece of information to the entity it describes. Additional mapping, not discussed in the paper." ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-info/isAbout> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/resourceODP/isAbout> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "isAbout" ;
+    sssom:object_type owl:ObjectProperty ;
+    sssom:subject_label "isAbout" ;
+    sssom:subject_type owl:ObjectProperty .
+
+<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0014> a sssom:Mapping ;
+    dc:identifier "DPPO_CEON_0014" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
+    rdfs:comment "Counterpart of DPPO_CEON_0009 for the constituent side: both relate a reified composition to the entity that the composition is composed of. Additional mapping, not discussed in the paper." ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-comp/aboutPart> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/compositionOf> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "compositionOf" ;
+    sssom:object_type owl:ObjectProperty ;
+    sssom:subject_label "aboutPart" ;
+    sssom:subject_type owl:ObjectProperty .
+
 <http://w3id.org/CEON/ontology/material/ChemicalSubstance> a owl:Class ;
     rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-core/Substance> .
-
-<http://w3id.org/CEON/ontology/product/Product> a owl:Class ;
-    rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-odp/Product> .
 
 <http://w3id.org/CEON/ontology/product/hasProductComponent> a owl:ObjectProperty ;
     rdfs:subPropertyOf <http://w3id.org/dppo/ontology/dpp-odp/hasPart> .
@@ -117,16 +218,55 @@ owl:annotatedTarget a rdf:Property .
 <http://w3id.org/dppo/ontology/dpp-comp/SubstanceOfConcern> a owl:Class ;
     rdfs:subClassOf <http://w3id.org/CEON/ontology/material/ChemicalEntity> .
 
+<http://w3id.org/dppo/ontology/dpp-comp/aboutPart> a owl:ObjectProperty ;
+    rdfs:subPropertyOf <http://w3id.org/CEON/ontology/product/compositionOf> .
+
+<http://w3id.org/dppo/ontology/dpp-comp/aboutWhole> a owl:ObjectProperty ;
+    owl:equivalentProperty <http://w3id.org/CEON/ontology/product/associatedWithProductModel> .
+
+<http://w3id.org/dppo/ontology/dpp-core/Component> a owl:Class ;
+    rdfs:subClassOf <http://w3id.org/CEON/ontology/product/Product> .
+
 <http://w3id.org/dppo/ontology/dpp-core/Material> a owl:Class ;
     owl:equivalentClass <http://w3id.org/CEON/ontology/material/Material> .
+
+<http://w3id.org/dppo/ontology/dpp-info/CompositionInformation> a owl:Class ;
+    owl:equivalentClass <http://w3id.org/CEON/ontology/product/Composition> .
+
+<http://w3id.org/dppo/ontology/dpp-info/DPPInformation> a owl:Class ;
+    rdfs:subClassOf <http://w3id.org/CEON/ontology/resourceODP/Information> .
+
+<http://w3id.org/dppo/ontology/dpp-info/containsInformation> a owl:ObjectProperty ;
+    rdfs:subPropertyOf <http://w3id.org/CEON/ontology/resourceODP/containsInformation> .
+
+<http://w3id.org/dppo/ontology/dpp-info/isAbout> a owl:ObjectProperty ;
+    rdfs:subPropertyOf <http://w3id.org/CEON/ontology/resourceODP/isAbout> .
+
+<http://w3id.org/dppo/ontology/dpp-odp/describes> a owl:ObjectProperty ;
+    rdfs:subPropertyOf <http://w3id.org/CEON/ontology/resourceODP/isAbout> .
 
 <http://w3id.org/CEON/ontology/material/ChemicalEntity> a owl:Class .
 
 <http://w3id.org/CEON/ontology/material/Material> a owl:Class .
 
+<http://w3id.org/CEON/ontology/product/Composition> a owl:Class .
+
+<http://w3id.org/CEON/ontology/product/associatedWithProductModel> a owl:ObjectProperty .
+
+<http://w3id.org/CEON/ontology/product/compositionOf> a owl:ObjectProperty .
+
+<http://w3id.org/CEON/ontology/resourceODP/Information> a owl:Class .
+
+<http://w3id.org/CEON/ontology/resourceODP/containsInformation> a owl:ObjectProperty .
+
 <http://w3id.org/dppo/ontology/dpp-core/Substance> a owl:Class .
 
 <http://w3id.org/dppo/ontology/dpp-odp/Product> a owl:Class .
+
+<http://w3id.org/CEON/ontology/product/Product> a owl:Class ;
+    rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-odp/Product> .
+
+<http://w3id.org/CEON/ontology/resourceODP/isAbout> a owl:ObjectProperty .
 
 <http://w3id.org/dppo/ontology/dpp-odp/hasPart> a owl:ObjectProperty .
 

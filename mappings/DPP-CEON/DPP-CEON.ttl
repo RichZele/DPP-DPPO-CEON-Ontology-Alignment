@@ -1,0 +1,63 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix semapv: <https://w3id.org/semapv/vocab/> .
+@prefix sssom: <https://w3id.org/sssom/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+owl:annotatedProperty a rdf:Property .
+
+owl:annotatedSource a rdf:Property .
+
+owl:annotatedTarget a rdf:Property .
+
+<https://w3id.org/dpp/alignment/dpp-ceon/> a owl:Ontology ;
+    dcterms:contributor "Eva Blomqvist",
+        "Huanyu Li",
+        "Rahel Kebede" ;
+    dcterms:created "2026-01-23"^^xsd:date ;
+    dcterms:creator "Rahel Kebede" ;
+    dcterms:license "https://creativecommons.org/licenses/by/4.0/" ;
+    dcterms:source "https://github.com/RichZele/DPP-DPPO-CEON-Ontology-Alignment/blob/main/documentations/DPP-CEON.xlsx" ;
+    dcterms:title "The alignment ontology between the DPP ontology and CEON" ;
+    rdfs:comment "This ontology represents the alignment between the Digital Product Passport (DPP) ontology and the Circular Economy Ontology Network (CEON)." ;
+    owl:versionInfo "0.1" .
+
+<https://w3id.org/dpp/alignment/dpp-ceon/DPP_CEON_0001> a sssom:Mapping ;
+    dc:identifier "DPP_CEON_0001" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dpp-ceon/" ;
+    rdfs:comment "dpp:Product and ceon-product:Product share the ISO 59004:2024 product definition, but dpp:Product is scoped to the products of the built environment whereas ceon-product:Product is domain neutral. Stated in the section on semantic alignment informed by the ESPR in the accompanying paper, where this alignment gives the DPP ontology access to the ESPR model, batch and item levels through CEON." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dpp#Product> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/Product> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "Product" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "Product" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/dpp-ceon/DPP_CEON_0002> a sssom:Mapping ;
+    dc:identifier "DPP_CEON_0002" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dpp-ceon/" ;
+    rdfs:comment "Both properties relate a product to a component that is itself a product. Additional mapping, not discussed in the paper." ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedSource <http://w3id.org/dpp#hasComponent> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/hasProductComponent> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "hasProductComponent" ;
+    sssom:object_type owl:ObjectProperty ;
+    sssom:subject_label "hasComponent" ;
+    sssom:subject_type owl:ObjectProperty .
+
+<http://w3id.org/dpp#Product> a owl:Class ;
+    rdfs:subClassOf <http://w3id.org/CEON/ontology/product/Product> .
+
+<http://w3id.org/dpp#hasComponent> a owl:ObjectProperty ;
+    rdfs:subPropertyOf <http://w3id.org/CEON/ontology/product/hasProductComponent> .
+
+<http://w3id.org/CEON/ontology/product/Product> a owl:Class .
+
+<http://w3id.org/CEON/ontology/product/hasProductComponent> a owl:ObjectProperty .
+
