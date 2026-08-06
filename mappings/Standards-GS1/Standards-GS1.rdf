@@ -3,9 +3,9 @@
   <Alignment>
     <xml>yes</xml>
     <level>0</level>
-    <onto1>https://w3id.org/dpp/</onto1>
+    <onto1>http://w3id.org/dpp</onto1>
     <onto2>https://www.gs1.org/voc/</onto2>
-    <url1>https://w3id.org/dpp/</url1>
+    <url1>http://w3id.org/dpp</url1>
     <url2>https://www.gs1.org/voc/</url2>
     <map>
       <cell>
@@ -14,6 +14,14 @@
         <relation>&lt;</relation>
       </cell>
     </map>
+  </Alignment>
+  <Alignment>
+    <xml>yes</xml>
+    <level>0</level>
+    <onto1>http://w3id.org/dppo/</onto1>
+    <onto2>https://www.gs1.org/voc/</onto2>
+    <url1>http://w3id.org/dppo/</url1>
+    <url2>https://www.gs1.org/voc/</url2>
     <map>
       <cell>
         <entity1 rdf:resource="http://w3id.org/dppo/ontology/dpp-odp/Product" />
@@ -23,6 +31,21 @@
     </map>
     <map>
       <cell>
+        <entity1 rdf:resource="http://w3id.org/dppo/ontology/dpp-info/value" />
+        <entity2 rdf:resource="https://www.gs1.org/voc/gtin" />
+        <relation>&gt;</relation>
+      </cell>
+    </map>
+  </Alignment>
+  <Alignment>
+    <xml>yes</xml>
+    <level>0</level>
+    <onto1>http://w3id.org/CEON/</onto1>
+    <onto2>https://www.gs1.org/voc/</onto2>
+    <url1>http://w3id.org/CEON/</url1>
+    <url2>https://www.gs1.org/voc/</url2>
+    <map>
+      <cell>
         <entity1 rdf:resource="http://w3id.org/CEON/ontology/product/Product" />
         <entity2 rdf:resource="https://www.gs1.org/voc/Product" />
         <relation>&lt;</relation>
@@ -30,15 +53,8 @@
     </map>
     <map>
       <cell>
-        <entity1 rdf:resource="https://www.gs1.org/voc/gtin" />
-        <entity2 rdf:resource="http://w3id.org/dppo/ontology/dpp-info/value" />
-        <relation>&lt;</relation>
-      </cell>
-    </map>
-    <map>
-      <cell>
-        <entity1 rdf:resource="https://www.gs1.org/voc/gtin" />
-        <entity2 rdf:resource="http://w3id.org/CEON/ontology/product/hasGlobalTradeItemNumber" />
+        <entity1 rdf:resource="http://w3id.org/CEON/ontology/product/hasGlobalTradeItemNumber" />
+        <entity2 rdf:resource="https://www.gs1.org/voc/gtin" />
         <relation>=</relation>
       </cell>
     </map>
