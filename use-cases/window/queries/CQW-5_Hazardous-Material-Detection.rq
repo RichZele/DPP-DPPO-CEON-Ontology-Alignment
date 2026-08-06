@@ -2,7 +2,7 @@ PREFIX ceon-material:  <http://w3id.org/CEON/ontology/material/>
 PREFIX dpp-info:       <http://w3id.org/dppo/ontology/dpp-info/>
 PREFIX dpp-odp:        <http://w3id.org/dppo/ontology/dpp-odp/>
 PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX glass: <https://w3id.org/glass/ontology/>           
+PREFIX glass: <http://w3id.org/CEON/ontology/flatglass/>           
 PREFIX qudt:  <http://qudt.org/schema/qudt/>      
 PREFIX quantitykind: <https://qudt.org/vocab/quantitykind/>
 PREFIX quantityunit: <http://qudt.org/vocab/unit/>
