@@ -6,23 +6,39 @@
 <https://w3id.org/dpp/alignment/dpp-dppo/> a owl:Ontology ;
     rdfs:label "Alignment between the DPP ontology and DPPO." .
 
+<http://w3id.org/dpp#Component> rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-core/Component> .
+
 <http://w3id.org/dpp#Manufacturer> rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-prov/ValueChainActor> .
-
-<http://w3id.org/dpp#Material> rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-core/Material> .
-
-<http://w3id.org/dpp#MaterialComposition> rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-info/CompositionInformation> .
-
-<http://w3id.org/dpp#Product> rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-odp/Product> .
 
 <http://w3id.org/dpp#hasComponent> rdfs:subPropertyOf <http://w3id.org/dppo/ontology/dpp-odp/hasPart> .
 
 <http://w3id.org/dpp#Agent> owl:equivalentClass <http://w3id.org/dppo/ontology/dpp-prov/Actor> .
 
-<http://w3id.org/dpp#Component> owl:equivalentClass <http://w3id.org/dppo/ontology/dpp-core/Component> .
-
-<http://w3id.org/dppo/ontology/dpp-core/Component> owl:equivalentClass <http://w3id.org/dpp#Component> .
-
 <http://w3id.org/dppo/ontology/dpp-prov/Actor> owl:equivalentClass <http://w3id.org/dpp#Agent> .
+
+[] a owl:Axiom ;
+    dc:identifier "DPP_DPPO_0005" ;
+    dcterms:source "DPPDPPO" ;
+    rdfs:comment "For product-level roles, keep DPP’s AgentRole on dpp:Product; additionally mint DPPO responsibleActor on each DPPInformation item to meet DPPO’s auditability." ;
+    owl:annotatedProperty owl:equivalentClass ;
+    owl:annotatedSource <http://w3id.org/dpp#Agent> ;
+    owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-prov/Actor> .
+
+[] a owl:Axiom ;
+    dc:identifier "DPP_DPPO_0002" ;
+    dcterms:source "DPPDPPO" ;
+    rdfs:comment "DPPO defines a component as a product that is itself a component of another product, and places material and substance under product as well, so a DPPO component may at the same time be a DPPO material or substance. The DPP ontology places its component class under dpp:Product and keeps dpp:Material in a branch coordinate with it under dpp:PhysicalEntity, so a DPP component is not a material. The DPP class is therefore the narrower of the two and is aligned as a subclass rather than equated. Stated in the section on the semantic alignment of core classes in the accompanying paper." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dpp#Component> ;
+    owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-core/Component> .
+
+[] a owl:Axiom ;
+    dc:identifier "DPP_DPPO_0005" ;
+    dcterms:source "DPPDPPO" ;
+    rdfs:comment "For product-level roles, keep DPP’s AgentRole on dpp:Product; additionally mint DPPO responsibleActor on each DPPInformation item to meet DPPO’s auditability." ;
+    owl:annotatedProperty owl:equivalentClass ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-prov/Actor> ;
+    owl:annotatedTarget <http://w3id.org/dpp#Agent> .
 
 [] a owl:Axiom ;
     dc:identifier "DPP_DPPO_0006" ;
@@ -39,60 +55,4 @@
     owl:annotatedProperty rdfs:subClassOf ;
     owl:annotatedSource <http://w3id.org/dpp#Manufacturer> ;
     owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-prov/ValueChainActor> .
-
-[] a owl:Axiom ;
-    dc:identifier "DPP_DPPO_0004" ;
-    dcterms:source "DPPDPPO" ;
-    rdfs:comment "Both model partonomy as first-class nodes; quantitative details remain attached to the reified link." ;
-    owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedSource <http://w3id.org/dpp#MaterialComposition> ;
-    owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-info/CompositionInformation> .
-
-[] a owl:Axiom ;
-    dc:identifier "DPP_DPPO_0005" ;
-    dcterms:source "DPPDPPO" ;
-    rdfs:comment "For product-level roles, keep DPP’s AgentRole on dpp:Product; additionally mint DPPO responsibleActor on each DPPInformation item to meet DPPO’s auditability." ;
-    owl:annotatedProperty owl:equivalentClass ;
-    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-prov/Actor> ;
-    owl:annotatedTarget <http://w3id.org/dpp#Agent> .
-
-[] a owl:Axiom ;
-    dc:identifier "DPP_DPPO_0001" ;
-    dcterms:source "DPPDPPO" ;
-    rdfs:comment "DPP is stricter: product≠material; DPPO keeps them possibly overlapping. Subclass mapping preserves DPPO’s sector-agnostic stance without breaking DPP's disjointness." ;
-    owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedSource <http://w3id.org/dpp#Product> ;
-    owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-odp/Product> .
-
-[] a owl:Axiom ;
-    dc:identifier "DPP_DPPO_0005" ;
-    dcterms:source "DPPDPPO" ;
-    rdfs:comment "For product-level roles, keep DPP’s AgentRole on dpp:Product; additionally mint DPPO responsibleActor on each DPPInformation item to meet DPPO’s auditability." ;
-    owl:annotatedProperty owl:equivalentClass ;
-    owl:annotatedSource <http://w3id.org/dpp#Agent> ;
-    owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-prov/Actor> .
-
-[] a owl:Axiom ;
-    dc:identifier "DPP_DPPO_0002" ;
-    dcterms:source "DPPDPPO" ;
-    rdfs:comment "Both represent part-whole relationships. Structural correspondence: both as subclasses of Product with part-of links. Modular alignment allows complex product breakdowns in DPP (e.g., building elements into sub-components) to map into DPPO’s composition pattern." ;
-    owl:annotatedProperty owl:equivalentClass ;
-    owl:annotatedSource <http://w3id.org/dpp#Component> ;
-    owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-core/Component> .
-
-[] a owl:Axiom ;
-    dc:identifier "DPP_DPPO_0002" ;
-    dcterms:source "DPPDPPO" ;
-    rdfs:comment "Both represent part-whole relationships. Structural correspondence: both as subclasses of Product with part-of links. Modular alignment allows complex product breakdowns in DPP (e.g., building elements into sub-components) to map into DPPO’s composition pattern." ;
-    owl:annotatedProperty owl:equivalentClass ;
-    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-core/Component> ;
-    owl:annotatedTarget <http://w3id.org/dpp#Component> .
-
-[] a owl:Axiom ;
-    dc:identifier "DPP_DPPO_0003" ;
-    dcterms:source "DPPDPPO" ;
-    rdfs:comment "Semantically equivalent: both capture the matter constituting products/parts. Subclass mapping (dppo:Material ⊑ dppo:Product) reflects DPPO’s flexibility; DPP’s modular placement preserves structure. Alignment preserves CE relevance (resource loops, recyclability)." ;
-    owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedSource <http://w3id.org/dpp#Material> ;
-    owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-core/Material> .
 

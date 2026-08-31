@@ -6,17 +6,27 @@
 <https://w3id.org/dpp/alignment/dpp-ceon/> a owl:Ontology ;
     rdfs:label "Alignment between the DPP ontology and CEON." .
 
-<http://w3id.org/dpp#Product> rdfs:subClassOf <http://w3id.org/CEON/ontology/product/Product> .
+<http://w3id.org/dpp#Material> rdfs:subClassOf <http://w3id.org/CEON/ontology/material/Material> .
+
+<http://w3id.org/dpp#MaterialComposition> rdfs:subClassOf <http://w3id.org/CEON/ontology/product/Composition> .
 
 <http://w3id.org/dpp#hasComponent> rdfs:subPropertyOf <http://w3id.org/CEON/ontology/product/hasProductComponent> .
 
 [] a owl:Axiom ;
-    dc:identifier "DPP_CEON_0001" ;
+    dc:identifier "DPP_CEON_0004" ;
     dcterms:source "DPPCEON" ;
-    rdfs:comment "dpp:Product and ceon-product:Product share the ISO 59004:2024 product definition, but dpp:Product is scoped to the products of the built environment whereas ceon-product:Product is domain neutral. Stated in the section on semantic alignment informed by the ESPR in the accompanying paper, where this alignment gives the DPP ontology access to the ESPR model, batch and item levels through CEON." ;
+    rdfs:comment "Both classes reify a composition relation. The general CEON composition class is used rather than ceon-product:MatterComposition, because the DPP ontology does not impose the restriction that every instance be associated with exactly one instance of Matter. Stated in the section on the semantic alignment of core classes in the accompanying paper." ;
     owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedSource <http://w3id.org/dpp#Product> ;
-    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/Product> .
+    owl:annotatedSource <http://w3id.org/dpp#MaterialComposition> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/Composition> .
+
+[] a owl:Axiom ;
+    dc:identifier "DPP_CEON_0003" ;
+    dcterms:source "DPPCEON" ;
+    rdfs:comment "The DPP and DPPO material classes apply different classification criteria, so no direct correspondence between them is justified. Both are instead related to ceon-material:Material, which CEON defines as a subclass of Matter requiring at least one associated chemical entity. Stated in the section on the semantic alignment of core classes in the accompanying paper." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dpp#Material> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/material/Material> .
 
 [] a owl:Axiom ;
     dc:identifier "DPP_CEON_0002" ;

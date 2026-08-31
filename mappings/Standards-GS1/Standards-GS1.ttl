@@ -64,24 +64,11 @@ owl:annotatedTarget a rdf:Property .
     sssom:subject_label "Product" ;
     sssom:subject_type owl:Class .
 
-<https://w3id.org/dpp/alignment/standards-gs1/GS1_0004> a sssom:Mapping ;
-    dc:identifier "GS1_0004" ;
-    dcterms:source "https://w3id.org/dpp/alignment/standards-gs1/" ;
-    rdfs:comment "DPPO provides no datatype property parallel to gs1:gtin. The literal-valued dpp-info:value is the closest available, although its semantic scope is broader and not specific to product identifiers. Stated in the GS1 section of the accompanying paper." ;
-    owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedSource <https://www.gs1.org/voc/gtin> ;
-    owl:annotatedTarget <http://w3id.org/dppo/ontology/dpp-info/value> ;
-    sssom:mapping_justification semapv:ManualMappingCuration ;
-    sssom:object_label "value" ;
-    sssom:object_type owl:DatatypeProperty ;
-    sssom:subject_label "gtin" ;
-    sssom:subject_type owl:DatatypeProperty .
-
 <https://w3id.org/dpp/alignment/standards-gs1/GS1_0005> a sssom:Mapping ;
     dc:identifier "GS1_0005" ;
     dcterms:source "https://w3id.org/dpp/alignment/standards-gs1/" ;
-    rdfs:comment "CEON already provides a literal-valued property for the GTIN, with range xsd:string and an rdfs:seeAlso reference to the GS1 GTIN standard, so the two capture the same lexical value. Stated as an equivalence in the GS1 section of the accompanying paper." ;
-    owl:annotatedProperty owl:equivalentProperty ;
+    rdfs:comment "CEON provides a literal-valued property for the GTIN carrying an rdfs:seeAlso reference to the GS1 standard. The two are not interchangeable. gs1:gtin is declared functional and declares gs1:Product and schema:Product as conjunctive domains, while the CEON property imposes neither constraint, so an equivalence would transfer both to CEON. The more constrained GS1 property is therefore aligned as a subproperty of the less constrained CEON property. Stated in the section on semantic alignment with the GS1 family of standards in the accompanying paper." ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedSource <https://www.gs1.org/voc/gtin> ;
     owl:annotatedTarget <http://w3id.org/CEON/ontology/product/hasGlobalTradeItemNumber> ;
     sssom:mapping_justification semapv:ManualMappingCuration ;
@@ -99,13 +86,10 @@ owl:annotatedTarget a rdf:Property .
 <http://w3id.org/dppo/ontology/dpp-odp/Product> a owl:Class ;
     rdfs:subClassOf <https://www.gs1.org/voc/Product> .
 
-<http://w3id.org/CEON/ontology/product/hasGlobalTradeItemNumber> a owl:DatatypeProperty .
-
-<http://w3id.org/dppo/ontology/dpp-info/value> a owl:DatatypeProperty .
-
 <https://www.gs1.org/voc/gtin> a owl:DatatypeProperty ;
-    rdfs:subPropertyOf <http://w3id.org/dppo/ontology/dpp-info/value> ;
-    owl:equivalentProperty <http://w3id.org/CEON/ontology/product/hasGlobalTradeItemNumber> .
+    rdfs:subPropertyOf <http://w3id.org/CEON/ontology/product/hasGlobalTradeItemNumber> .
+
+<http://w3id.org/CEON/ontology/product/hasGlobalTradeItemNumber> a owl:DatatypeProperty .
 
 <https://www.gs1.org/voc/Product> a owl:Class .
 

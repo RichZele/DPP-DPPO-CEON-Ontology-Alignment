@@ -1,0 +1,125 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix semapv: <https://w3id.org/semapv/vocab/> .
+@prefix sssom: <https://w3id.org/sssom/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+owl:annotatedProperty a rdf:Property .
+
+owl:annotatedSource a rdf:Property .
+
+owl:annotatedTarget a rdf:Property .
+
+<https://w3id.org/dpp/alignment/core/> a owl:Ontology ;
+    dcterms:contributor "Eva Blomqvist",
+        "Huanyu Li",
+        "Rahel Kebede" ;
+    dcterms:created "2026-01-23"^^xsd:date ;
+    dcterms:creator "Rahel Kebede" ;
+    dcterms:license "https://creativecommons.org/licenses/by/4.0/" ;
+    dcterms:source "https://github.com/RichZele/DPP-DPPO-CEON-Ontology-Alignment/blob/main/documentations/Core-Align.xlsx" ;
+    dcterms:title "The alignment ontology between the DPP ontology and CEON" ;
+    rdfs:comment "This ontology introduces the classes that the alignment itself defines, and relates the product classes of the DPP, DPPO and CEON ontologies to them." ;
+    owl:versionInfo "0.1" .
+
+<https://w3id.org/dpp/alignment/core/CORE_0001> a sssom:Mapping ;
+    dc:identifier "CORE_0001" ;
+    dcterms:source "https://w3id.org/dpp/alignment/core/" ;
+    rdfs:comment "align:ProductModel is introduced by the ESPR-informed extension as a mediating class beneath the common retrieval class align:Product, for the source classes that are read at the product-model level. Stated in the section on semantic alignment informed by the ESPR in the accompanying paper." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <https://w3id.org/dpp/alignment/core/ProductModel> ;
+    owl:annotatedTarget <https://w3id.org/dpp/alignment/core/Product> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "Product" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "ProductModel" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/core/CORE_0002> a sssom:Mapping ;
+    dc:identifier "CORE_0002" ;
+    dcterms:source "https://w3id.org/dpp/alignment/core/" ;
+    rdfs:comment "The three product classes are organised by different criteria and none of them contains another, so no direct correspondence between them is justified. align:Product is introduced by the alignment as a common retrieval class for entities classified as products by any of the source ontologies. It carries no restriction on composition, granularity or market status, so nothing is imported from one source class into another. Stated in the section on the semantic alignment of core classes in the accompanying paper." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dpp#Product> ;
+    owl:annotatedTarget <https://w3id.org/dpp/alignment/core/Product> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "Product" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "Product" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/core/CORE_0003> a sssom:Mapping ;
+    dc:identifier "CORE_0003" ;
+    dcterms:source "https://w3id.org/dpp/alignment/core/" ;
+    rdfs:comment "The three product classes are organised by different criteria and none of them contains another, so no direct correspondence between them is justified. align:Product is introduced by the alignment as a common retrieval class for entities classified as products by any of the source ontologies. It carries no restriction on composition, granularity or market status, so nothing is imported from one source class into another. Stated in the section on the semantic alignment of core classes in the accompanying paper. DPPO does not restrict its product class to the model level, so it is related to align:Product only." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-odp/Product> ;
+    owl:annotatedTarget <https://w3id.org/dpp/alignment/core/Product> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "Product" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "Product" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/core/CORE_0004> a sssom:Mapping ;
+    dc:identifier "CORE_0004" ;
+    dcterms:source "https://w3id.org/dpp/alignment/core/" ;
+    rdfs:comment "The three product classes are organised by different criteria and none of them contains another, so no direct correspondence between them is justified. align:Product is introduced by the alignment as a common retrieval class for entities classified as products by any of the source ontologies. It carries no restriction on composition, granularity or market status, so nothing is imported from one source class into another. Stated in the section on the semantic alignment of core classes in the accompanying paper." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/CEON/ontology/product/Product> ;
+    owl:annotatedTarget <https://w3id.org/dpp/alignment/core/Product> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "Product" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "Product" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/core/CORE_0005> a sssom:Mapping ;
+    dc:identifier "CORE_0005" ;
+    dcterms:source "https://w3id.org/dpp/alignment/core/" ;
+    rdfs:comment "The definitions of dpp:Product and ceon:Product do not order one class under the other, but both are read at the product-model level. They are therefore placed under the shared model-level class rather than related directly, which shares the ESPR model level without transferring the existential composition restrictions that ceon:Product carries. Stated in the section on semantic alignment informed by the ESPR in the accompanying paper." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dpp#Product> ;
+    owl:annotatedTarget <https://w3id.org/dpp/alignment/core/ProductModel> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "ProductModel" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "Product" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/core/CORE_0006> a sssom:Mapping ;
+    dc:identifier "CORE_0006" ;
+    dcterms:source "https://w3id.org/dpp/alignment/core/" ;
+    rdfs:comment "The definitions of dpp:Product and ceon:Product do not order one class under the other, but both are read at the product-model level. They are therefore placed under the shared model-level class rather than related directly, which shares the ESPR model level without transferring the existential composition restrictions that ceon:Product carries. Stated in the section on semantic alignment informed by the ESPR in the accompanying paper." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/CEON/ontology/product/Product> ;
+    owl:annotatedTarget <https://w3id.org/dpp/alignment/core/ProductModel> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "ProductModel" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "Product" ;
+    sssom:subject_type owl:Class .
+
+<http://w3id.org/dppo/ontology/dpp-odp/Product> a owl:Class ;
+    rdfs:subClassOf <https://w3id.org/dpp/alignment/core/Product> .
+
+<http://w3id.org/CEON/ontology/product/Product> a owl:Class ;
+    rdfs:subClassOf <https://w3id.org/dpp/alignment/core/Product>,
+        <https://w3id.org/dpp/alignment/core/ProductModel> .
+
+<http://w3id.org/dpp#Product> a owl:Class ;
+    rdfs:subClassOf <https://w3id.org/dpp/alignment/core/Product>,
+        <https://w3id.org/dpp/alignment/core/ProductModel> .
+
+<https://w3id.org/dpp/alignment/core/ProductModel> a owl:Class ;
+    rdfs:label "Product model"@en ;
+    rdfs:comment "A mediating class beneath align:Product for the source product classes that are read at the ESPR product-model level. It carries no restriction of its own."@en ;
+    rdfs:subClassOf <https://w3id.org/dpp/alignment/core/Product> .
+
+<https://w3id.org/dpp/alignment/core/Product> a owl:Class ;
+    rdfs:label "Product"@en ;
+    rdfs:comment "A common retrieval class for entities classified as products by any of the aligned ontologies. It does not reconcile their definitions and carries no restriction on composition, granularity or market status."@en .
+

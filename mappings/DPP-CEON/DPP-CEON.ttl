@@ -25,19 +25,6 @@ owl:annotatedTarget a rdf:Property .
     rdfs:comment "This ontology represents the alignment between the Digital Product Passport (DPP) ontology and the Circular Economy Ontology Network (CEON)." ;
     owl:versionInfo "0.1" .
 
-<https://w3id.org/dpp/alignment/dpp-ceon/DPP_CEON_0001> a sssom:Mapping ;
-    dc:identifier "DPP_CEON_0001" ;
-    dcterms:source "https://w3id.org/dpp/alignment/dpp-ceon/" ;
-    rdfs:comment "dpp:Product and ceon-product:Product share the ISO 59004:2024 product definition, but dpp:Product is scoped to the products of the built environment whereas ceon-product:Product is domain neutral. Stated in the section on semantic alignment informed by the ESPR in the accompanying paper, where this alignment gives the DPP ontology access to the ESPR model, batch and item levels through CEON." ;
-    owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedSource <http://w3id.org/dpp#Product> ;
-    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/Product> ;
-    sssom:mapping_justification semapv:ManualMappingCuration ;
-    sssom:object_label "Product" ;
-    sssom:object_type owl:Class ;
-    sssom:subject_label "Product" ;
-    sssom:subject_type owl:Class .
-
 <https://w3id.org/dpp/alignment/dpp-ceon/DPP_CEON_0002> a sssom:Mapping ;
     dc:identifier "DPP_CEON_0002" ;
     dcterms:source "https://w3id.org/dpp/alignment/dpp-ceon/" ;
@@ -51,13 +38,44 @@ owl:annotatedTarget a rdf:Property .
     sssom:subject_label "hasComponent" ;
     sssom:subject_type owl:ObjectProperty .
 
-<http://w3id.org/dpp#Product> a owl:Class ;
-    rdfs:subClassOf <http://w3id.org/CEON/ontology/product/Product> .
+<https://w3id.org/dpp/alignment/dpp-ceon/DPP_CEON_0003> a sssom:Mapping ;
+    dc:identifier "DPP_CEON_0003" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dpp-ceon/" ;
+    rdfs:comment "The DPP and DPPO material classes apply different classification criteria, so no direct correspondence between them is justified. Both are instead related to ceon-material:Material, which CEON defines as a subclass of Matter requiring at least one associated chemical entity. Stated in the section on the semantic alignment of core classes in the accompanying paper." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dpp#Material> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/material/Material> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "Material" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "Material" ;
+    sssom:subject_type owl:Class .
+
+<https://w3id.org/dpp/alignment/dpp-ceon/DPP_CEON_0004> a sssom:Mapping ;
+    dc:identifier "DPP_CEON_0004" ;
+    dcterms:source "https://w3id.org/dpp/alignment/dpp-ceon/" ;
+    rdfs:comment "Both classes reify a composition relation. The general CEON composition class is used rather than ceon-product:MatterComposition, because the DPP ontology does not impose the restriction that every instance be associated with exactly one instance of Matter. Stated in the section on the semantic alignment of core classes in the accompanying paper." ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource <http://w3id.org/dpp#MaterialComposition> ;
+    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/Composition> ;
+    sssom:mapping_justification semapv:ManualMappingCuration ;
+    sssom:object_label "Composition" ;
+    sssom:object_type owl:Class ;
+    sssom:subject_label "MaterialComposition" ;
+    sssom:subject_type owl:Class .
+
+<http://w3id.org/dpp#Material> a owl:Class ;
+    rdfs:subClassOf <http://w3id.org/CEON/ontology/material/Material> .
+
+<http://w3id.org/dpp#MaterialComposition> a owl:Class ;
+    rdfs:subClassOf <http://w3id.org/CEON/ontology/product/Composition> .
 
 <http://w3id.org/dpp#hasComponent> a owl:ObjectProperty ;
     rdfs:subPropertyOf <http://w3id.org/CEON/ontology/product/hasProductComponent> .
 
-<http://w3id.org/CEON/ontology/product/Product> a owl:Class .
+<http://w3id.org/CEON/ontology/material/Material> a owl:Class .
+
+<http://w3id.org/CEON/ontology/product/Composition> a owl:Class .
 
 <http://w3id.org/CEON/ontology/product/hasProductComponent> a owl:ObjectProperty .
 

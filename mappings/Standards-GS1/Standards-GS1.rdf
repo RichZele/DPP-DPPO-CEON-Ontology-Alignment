@@ -29,13 +29,6 @@
         <relation>&lt;</relation>
       </cell>
     </map>
-    <map>
-      <cell>
-        <entity1 rdf:resource="http://w3id.org/dppo/ontology/dpp-info/value" />
-        <entity2 rdf:resource="https://www.gs1.org/voc/gtin" />
-        <relation>&gt;</relation>
-      </cell>
-    </map>
   </Alignment>
   <Alignment>
     <xml>yes</xml>
@@ -55,7 +48,7 @@
       <cell>
         <entity1 rdf:resource="http://w3id.org/CEON/ontology/product/hasGlobalTradeItemNumber" />
         <entity2 rdf:resource="https://www.gs1.org/voc/gtin" />
-        <relation>=</relation>
+        <relation>&gt;</relation>
       </cell>
     </map>
   </Alignment>
