@@ -193,8 +193,6 @@ owl:annotatedTarget a rdf:Property .
 
 <http://w3id.org/CEON/ontology/material/Material> a owl:Class .
 
-<http://w3id.org/CEON/ontology/product/Product> a owl:Class .
-
 <http://w3id.org/CEON/ontology/resourceODP/containsInformation> a owl:ObjectProperty .
 
 <http://w3id.org/dppo/ontology/dpp-core/Substance> a owl:Class .
