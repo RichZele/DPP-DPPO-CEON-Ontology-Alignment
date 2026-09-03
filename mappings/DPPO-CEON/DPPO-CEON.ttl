@@ -93,18 +93,6 @@ owl:annotatedTarget a rdf:Property .
     sssom:subject_label "hasProductObjectComponent" ;
     sssom:subject_type owl:ObjectProperty .
 
-<https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0008> a sssom:Mapping ;
-    dc:identifier "DPPO_CEON_0008" ;
-    dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
-    owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedSource <http://w3id.org/dppo/ontology/dpp-core/Component> ;
-    owl:annotatedTarget <http://w3id.org/CEON/ontology/product/Product> ;
-    sssom:mapping_justification semapv:ManualMappingCuration ;
-    sssom:object_label "Product" ;
-    sssom:object_type owl:Class ;
-    sssom:subject_label "Component" ;
-    sssom:subject_type owl:Class .
-
 <https://w3id.org/dpp/alignment/dppo-ceon/DPPO_CEON_0010> a sssom:Mapping ;
     dc:identifier "DPPO_CEON_0010" ;
     dcterms:source "https://w3id.org/dpp/alignment/dppo-ceon/" ;
@@ -181,9 +169,6 @@ owl:annotatedTarget a rdf:Property .
 
 <http://w3id.org/dppo/ontology/dpp-comp/SubstanceOfConcern> a owl:Class ;
     rdfs:subClassOf <http://w3id.org/CEON/ontology/material/ChemicalEntity> .
-
-<http://w3id.org/dppo/ontology/dpp-core/Component> a owl:Class ;
-    rdfs:subClassOf <http://w3id.org/CEON/ontology/product/Product> .
 
 <http://w3id.org/dppo/ontology/dpp-core/Material> a owl:Class ;
     rdfs:subClassOf <http://w3id.org/CEON/ontology/material/Material> .
